@@ -31,23 +31,38 @@ class Artists extends BaseController
 		}
 	}
 
-	public function qedit($id = null) {
-		if($id != null) {
-			$query = $this->db->table('artis')->getWhere(['artis_id' => $id]);
-			// Jika Data Tidak Ada Lebih Dari data Di Mysql
-			if($query->resultID->num_rows > 0){
-				$data['artis'] = $query->getRow();
-				return view('Main/artists/artis', $data);
-			} else {
-				throw \Codeigniter\Exceptions\PageNotFoundException::forPageNotFound();
-			}
-		} else {
-			throw \Codeigniter\Exceptions\PageNotFoundException::forPageNotFound();
-		}
-	}
+	// public function qedit($id = null) {
+	// 	//$data = $this->request->getPost('artis_id');
+	// 	if($id != null) {
+	// 		$query = $this->db->table('artis')->getWhere(['artis_id' => $id]);
+	// 		// Jika Data Tidak Ada Lebih Dari data Di Mysql
+	// 		if($query->resultID->num_rows > 0){
+	// 			$data['artis'] = $query->getRow();
+	// 			$name = $this->request->getPost('artis_name');
+	// 				if($name != 'artis_name') {
+	// 				$data = [
+	// 					'artis_pict'		    => $this->request->getPost('artis_pict'),
+	// 					'artis_name'		    => $this->request->getPost('artis_name'),
+	// 					'artis_very'  			=> $this->request->getPost('artis_very'),
+	// 				];
+	// 				$this->db->table('artis')->where(['artis_id' => $id])->update($data);
+	// 				return redirect()->to(site_url('Main/artists/'))->with('success', 'Artits Edited');
+	// 				}else {
+	// 					$this->session->setFlashdata('error', 'Terjadi Kesalahann <br> Mohon Ulang Lagi');
+	// 					return redirect()->to(base_url('Main/artists/'));	
+	// 				}
+					
+	// 		} else {
+	// 			throw \Codeigniter\Exceptions\PageNotFoundException::forPageNotFound();
 
-	public function qeditup($id) {
-		$data = $this->request->getPost();
+	// 		}
+	// 	} else {
+	// 		throw \Codeigniter\Exceptions\PageNotFoundException::forPageNotFound();
+	// 	}
+	// }
+
+	public function qedit($id) {
+		$data = $this->request->getPost('artis_id');
 		//jika tidak spesifik
 		//unset($data['_method']);
 		$data = [
@@ -56,8 +71,8 @@ class Artists extends BaseController
 			'artis_very'  			=> $this->request->getPost('artis_very'),
 		];
 		$this->db->table('artis')->where(['artis_id' => $id])->update($data);
-		return redirect()->to(site_url('Main/artists/artis'))->with('success', 'Artits Edited');
-	}
+		return redirect()->to(site_url('Main/artists/'))->with('success', 'Artits Edited');
+	 }
 
 	// core lama
 

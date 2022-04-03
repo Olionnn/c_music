@@ -48,7 +48,7 @@
         <td scope="row" colspan=""><?php echo $row->artis_name ?></td>
         <td scope="row" colspan=""><?php echo $row->artis_very ?></td>
         <td scope="row">
-          <a class="btn btn-warning btn-sm btn-edit" data-toggle="modal" data-target="#editModal" href="#" data-artis_id="<?= $row->artis_id;?>" data-artis_pict="<?= $row->artis_pict;?>" data-artis_very="<?= $row->artis_very;?>" >
+          <a class="btn btn-warning btn-sm btn-edit" data-toggle="modal" data-target="#editModal" href="#" data-artis_id="<?= $row->artis_id?>" data-artis_name="<?= $row->artis_name?>" data-artis_pict="<?= $row->artis_pict?>" data-artis_very="<?= $row->artis_very;?>" >
             Edit
           </a>
           <a class="btn btn-danger btn-sm btn-delete" data-toggle="modal" data-target="#deleteModal" href="#" data-id="<?= $row->artis_id;?>">
@@ -115,21 +115,21 @@
             </div>
             
             <div class="modal-body">
-              <?= $row->artis_name ?>
               <?= csrf_field() ?>
+              <?= $row->artis_id ?>
               <div class="form-group">
                 <label>Artist Name</label>
-                <input type="text" class="form-control artis_name" id="artis_name" name="artis_name" placeholder="Masukan Nama" value="<?php echo $row->artis_name?>">
+                <input type="text" class="form-control artis_name" id="artis_name" name="artis_name" placeholder="Masukan Nama" >
               </div>
                               
               <div class="form-group">
                 <label>Artist Picture</label>
-                <input type="text" class="form-control artis_pict" id="artis_pict" name="artis_pict" placeholder="Masukan Profile Picture" value="<?php echo $row->artis_pict?>">
+                <input type="text" class="form-control artis_pict" id="artis_pict" name="artis_pict" placeholder="Masukan Profile Picture" >
               </div>
                 
               <div class="form-group">
                 <label>Artist Verify?</label>
-                <input type="text" class="form-control artis_very" id="artis_very" name="artis_very" placeholder="Akun Verify?" value="<?php echo $row->artis_very?>">
+                <input type="text" class="form-control artis_very" id="artis_very" name="artis_very" placeholder="Akun Verify?">
               </div>
               
             </div>
@@ -174,34 +174,3 @@
 <?= $this->endSection() ?>
 
     
-<script>  
-$(document).ready(function(){
-    // get Edit Product
-    $('.btn-edit').on('click',function(){
-        // get data from button edit
-        const artis_id = $(this).data('artis_id');
-        const artis_name = $(this).data('artis_name');
-        //const user_password = $(this).data('user_password');
-        const artis_pict = $(this).data('artis_pict');
-        const artis_very = $(this).data('artis_very');
-        // Set data to Form Edit
-        $('.dartis_id').val(artis_id);
-        $('.artis_name').val(artis_name);
-        $('.artis_pict').val(artis_pict);
-        $('.artis_very').val(artis_very);
-        //$('.product_category').val(category).trigger('change');
-        // Call Modal Edit
-        $('#editModal').modal('show');
-    });
-
-      // get Delete 
-      $('.btn-delete').on('click',function(){
-      // get data from button edit
-      const id = $(this).data('user_id');
-      // Set data to Form Edit
-      $('.duser_id').val(id);
-      // Call Modal Edit
-      $('#deleteModal').modal('show');
-      });
-  });
-<script>

@@ -40,7 +40,6 @@ $routes->addRedirect('auth/', 'Auth::index' );
 $routes->get('Main/artist/', 'Main/Artis::index' );
 $routes->get('Main/artist/', 'Main/Artis::qtambah' );
 $routes->post('Main/artist/(:any)', 'Main/Artis::qedit/$1' );
-$routes->put('Main/artist/(:any)', 'Main/Artis::qeditup/$1' );
 
 //user
 $routes->get('Main/Users/', 'Main/Users::index' );

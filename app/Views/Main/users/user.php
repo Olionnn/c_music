@@ -121,6 +121,7 @@
             </div>
             <div class="modal-body">
             <?= csrf_field() ?>
+            <?= $row['user_id'] ?>
               <div class="form-group">
                 <label>Username</label>
                 <input type="text" class="form-control user_username" id="user_username" name="user_username" placeholder="Masukan Username">

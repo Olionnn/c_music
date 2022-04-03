@@ -73,24 +73,25 @@
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script> -->
 
-    <script>
-
-
-
-
-    // users edit
+    <script>    
     $(document).ready(function(){
  
         // get Edit Product
         $('.btn-edit').on('click',function(){
-            // get data from button edit
-            const user_id = $(this).data('user_id');
-            const user_username = $(this).data('user_username');
+            // users edit
+            const user_id           = $(this).data('user_id');
+            const user_username     = $(this).data('user_username');
             //const user_password = $(this).data('user_password');
-            const user_email = $(this).data('user_email');
-            const user_nohp = $(this).data('user_nohp');
-            const user_pictprofile = $(this).data('user_pictprofile');
+            const user_email        = $(this).data('user_email');
+            const user_nohp         = $(this).data('user_nohp');
+            const user_pictprofile  = $(this).data('user_pictprofile');
+            //Artis edit
+            const artis_id      = $(this).data('artis_id');
+            const artis_name    = $(this).data('artis_name');
+            const artis_pict    = $(this).data('artis_pict');
+            const artis_very    = $(this).data('artis_very');
             // Set data to Form Edit
+            // users edit
             $('.quser_id').val(user_id);
             $('.user_username').val(user_username);
             //$('.user_password').val(user_password);
@@ -98,6 +99,11 @@
             $('.user_nohp').val(user_nohp);
             $('.user_pictprofile').val(user_pictprofile);
             //$('.product_category').val(category).trigger('change');
+            //Artis edit
+            $('.qartis_id').val(artis_id);
+            $('.artis_name').val(artis_name);
+            $('.artis_pict').val(artis_pict);
+            $('.artis_very').val(artis_very);
             // Call Modal Edit
             $('#editModal').modal('show');
         });
@@ -113,11 +119,16 @@
         // })
           // get Delete Product
           $('.btn-delete').on('click',function(){
-              // get data from button edit
+              // get data from button Delete
+              // users Delete
               const id = $(this).data('user_id');
-              // Set data to Form Edit
+              //Artis Delete
+              const arid      = $(this).data('artis_id');
+              // Set data to Form Delete
               $('.duser_id').val(id);
-              // Call Modal Edit
+              //Artis Delete
+              $('.dartis_id').val(arid);
+              // Call Modal Delete
               $('#deleteModal').modal('show');
           });
          
