@@ -34,7 +34,18 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 //$routes->get('/', 'Home::index');
 
-$routes->get('/', 'Home::index' );
+
+$routes->addRedirect('auth/', 'Auth::index' );
+//artis
+$routes->get('Main/artist/', 'Main/Artis::index' );
+$routes->get('Main/artist/', 'Main/Artis::qtambah' );
+$routes->post('Main/artist/(:any)', 'Main/Artis::qedit/$1' );
+$routes->put('Main/artist/(:any)', 'Main/Artis::qeditup/$1' );
+
+//user
+$routes->get('Main/Users/', 'Main/Users::index' );
+$routes->get('Main/Users/', 'Main/Users::qtambah' );
+$routes->post('Main/Users/(:any)', 'Main/Users::qedit/$1' );
 // $routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------

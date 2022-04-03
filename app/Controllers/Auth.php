@@ -79,5 +79,9 @@ class Auth extends BaseController
 		return redirect()->to(site_url('Auth/login'))->with('sukses', 'Anda Sudah logout');
 	}
 
+	// public function regisacc() {
+	// 	$post = $this->request->getPost();
+	// 	$query = $this->db->table('users')->getWhere(['user_email' => $post['user_email']]);
+	// }
 
 }

@@ -21,33 +21,47 @@ class Users extends BaseController
 		return view('main/users/user', $data);
 	}
 
-	public function qtambah() {
+	// public function qtambah() {
 
-		if (!$this->validate([
-			'user_username' 		=> 'is_unique[Users.user_username,uuid,{uuid}]|required',
-			'user_password' 		=> 'required',
-			'user_email' 			=> 'is_unique[Users.user_email,uuid,{uuid}]|valid_email|required',
-		//	'user_pictprofile' 		=> 'required',
-		]))
-		{
-			$data = array(	//'data_date_created'		    => $this->request->getVar('data_date_created'),
-				//'data_date_modif'		    => $this->request->getVar('data_date_modif'),
+	// 	if (!$this->validate([
+	// 		'user_username' 		=> 'is_unique[Users.user_username,uuid,{uuid}]|required',
+	// 		'user_password' 		=> 'required',
+	// 		'user_email' 			=> 'is_unique[Users.user_email,uuid,{uuid}]|valid_email|required',
+	// 	//	'user_pictprofile' 		=> 'required',
+	// 	]))
+	// 	{
+	// 		$data = array(	//'data_date_created'		    => $this->request->getVar('data_date_created'),
+	// 			//'data_date_modif'		    => $this->request->getVar('data_date_modif'),
+	// 			'user_username'		    => $this->request->getPost('user_username'),
+	// 			'user_password'		    => password_hash($this->request->getPost('user_password'), PASSWORD_DEFAULT),
+	// 			'user_email'		    => $this->request->getPost('user_email'),
+	// 			'user_nohp'  			=> $this->request->getPost('user_nohp'),
+	// 			'user_pictprofile'		=> $this->request->getPost('user_pictprofile'),
+	// 		);
+	// 		$this->Users_model->tambah($data);
+	// 		$this->session->setFlashdata('sukses', 'Data telah ditambah');
+	// 		return redirect()->to(base_url('Main/users/index'));
+	// 	}else {
+	// 		$this->session->setFlashdata('error', 'Terjadi Kesalahann <br> Mohon Ulang Lagi');
+	// 		return redirect()->to(base_url('Main/users/index'));	
+	// 	}
+	// }	
+		public function qtambah() {
+			$data = $this->request->getPost();
+			//spesifk
+			$data = [
 				'user_username'		    => $this->request->getPost('user_username'),
 				'user_password'		    => password_hash($this->request->getPost('user_password'), PASSWORD_DEFAULT),
 				'user_email'		    => $this->request->getPost('user_email'),
 				'user_nohp'  			=> $this->request->getPost('user_nohp'),
 				'user_pictprofile'		=> $this->request->getPost('user_pictprofile'),
-			);
-			$this->Users_model->tambah($data);
-			$this->session->setFlashdata('sukses', 'Data telah ditambah');
-			return redirect()->to(base_url('Main/users/index'));
-		}else {
-			$this->session->setFlashdata('error', 'Terjadi Kesalahann <br> Mohon Ulang Lagi');
-			return redirect()->to(base_url('Main/users/index'));	
+			];
+			$this->db->table('users')->insert($data);
+			if($this->db->affectedRows() > - 0) {
+				return redirect()->to(site_url('Main/users/'))->with('success', 'Users Added');
+			}
 		}
-		
-
-	}
+	
 	public function qedit() {
 			if (!$this->validate([
 				// 'user_username' 		=> 'is_unique[Users.user_username,uuid,{uuid}]|required',

@@ -74,6 +74,11 @@
     <script src="../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script> -->
 
     <script>
+
+
+
+
+    // users edit
     $(document).ready(function(){
  
         // get Edit Product

@@ -67,7 +67,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="#">Artist
+                                        <a href="<?php  echo base_url('Main/artists') ?>">Artist
                                         </a>
                                     </li>
                                     <li>

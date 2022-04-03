@@ -8,7 +8,7 @@
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="<?php echo base_url() ?>/assets/images/img-01.png" alt="IMG">
 				</div>
-				 sd
+				 
 				<form class="login100-form validate-form"  method="post" action="<?php echo base_url('Auth/loginacc') ?>">
 					<span class="login100-form-title">
 						Login To C Mu
@@ -22,6 +22,7 @@
 						<p class="alert alert-danger"><?php echo $session->getFlashdata('error'); ?></p>
 						<?php } ?>
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz"> 
+						<?= csrf_field() ?>
 						<input class="input100" type="text" name="user_email" placeholder="Email">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">

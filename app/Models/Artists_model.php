@@ -2,7 +2,7 @@
 
 use CodeIgniter\Model;
 
-class Users_model extends Model
+class Artists_model extends Model
 {
 	protected $table 		= 'artis';
 	protected $primaryKey 	= 'artis_id';
@@ -20,11 +20,11 @@ class Users_model extends Model
     }
 
     	// Detail
-	public function detail($id_artis)
+	public function detail($id_artist)
 	{
         $this->select('*');
         //$this->join('`user_levels`','user_levels.user_level_id = users.user_levelid');
-		$this->where(array(	'artis_id'	=> $id_artis));
+		$this->where(array(	'artis_id'	=> $id_artist));
 		$query = $this->get();
 		return $query->getRowArray();
 	}
@@ -44,7 +44,7 @@ class Users_model extends Model
     	// Delete
 	public function hapus($id_artis)
 	{
-		$this->where('artis_id', $id_artis);
+		$this->where('artis_id', $id_artist);
 		$this->delete();
 	}
 

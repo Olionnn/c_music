@@ -70,8 +70,9 @@
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
+        
         <div class="modal-body">
-          
+          <?= csrf_field() ?>
             <div class="form-group">
                 <label>Username</label>
                 <input type="text" class="form-control" id="user_username" name="user_username" placeholder="Masukan Username" value="<?php echo set_value('user_username')?>">
@@ -119,7 +120,7 @@
               </button>
             </div>
             <div class="modal-body">
-              
+            <?= csrf_field() ?>
               <div class="form-group">
                 <label>Username</label>
                 <input type="text" class="form-control user_username" id="user_username" name="user_username" placeholder="Masukan Username">
